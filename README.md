@@ -28,7 +28,7 @@ Runs the `build` in preview mode.
 
 ### `npm run deploy`
 
-Publishes the `build` to GitHub Pages using [gh-pages](https://github.com/tschaub/gh-pages). Tutorial [here](https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f).
+Publishes the `build` to GitHub Pages using [gh-pages](https://github.com/tschaub/gh-pages).
 
 ### `npm run build:dist`
 
