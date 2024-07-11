@@ -13,15 +13,29 @@ type JSONObject = { [key: string]: JSONValue };
 type JSONExplorerProps = {
   data: JSONObject;
 };
+const renderKey = (key: string, path: string) => {
+  return (
+    <span className="key" onClick={() => console.log(path)}>
+      {key}
+    </span>
+  );
+};
 
-const renderValue = (key: string, value: JSONValue, omitKey?: boolean) => {
+const renderValue = (
+  key: string,
+  value: JSONValue,
+  path: string,
+  isArrayValue?: boolean
+) => {
+  const currentPath = `${path}${isArrayValue ? `[${key}]` : `.${key}`}`;
+
   if (Array.isArray(value)) {
     return (
       <li key={key}>
-        <span className="key">{key}</span>
+        {renderKey(key, currentPath)}
         <ul className="array">
           {value.map((item, index) =>
-            renderValue(index.toString(), item, true)
+            renderValue(index.toString(), item, currentPath, true)
           )}
         </ul>
       </li>
@@ -34,7 +48,7 @@ const renderValue = (key: string, value: JSONValue, omitKey?: boolean) => {
       <li key={key}>
         <ul className="object">
           {Object.entries(value as Object).map(([subKey, subValue]) =>
-            renderValue(subKey, subValue)
+            renderValue(subKey, subValue, currentPath)
           )}
         </ul>
       </li>
@@ -43,7 +57,7 @@ const renderValue = (key: string, value: JSONValue, omitKey?: boolean) => {
 
   return (
     <li key={key}>
-      {!omitKey && <span className={`key`}>{key}</span>}
+      {renderKey(key, currentPath)}
       <span className={`value ${typeOfValue}`}>{String(value)}</span>
     </li>
   );
@@ -53,7 +67,9 @@ const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
   return (
     <div className="json-explorer">
       <ul className="object">
-        {Object.entries(data).map(([key, value]) => renderValue(key, value))}
+        {Object.entries(data).map(([key, value]) =>
+          renderValue(key, value, "res")
+        )}
       </ul>
     </div>
   );

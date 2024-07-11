@@ -54,6 +54,11 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
       >
         <li>
           <span
+            class="key"
+          >
+            0
+          </span>
+          <span
             class="value string"
           >
             banana
@@ -61,12 +66,22 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
         </li>
         <li>
           <span
+            class="key"
+          >
+            1
+          </span>
+          <span
             class="value string"
           >
             apple
           </span>
         </li>
         <li>
+          <span
+            class="key"
+          >
+            2
+          </span>
           <span
             class="value string"
           >
