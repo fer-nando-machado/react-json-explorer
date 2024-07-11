@@ -2,9 +2,23 @@
   outline: 1px dashed #777777;
   background-color: white;
   border-radius: 12px;
-  padding: 12px;
+  padding: 18px;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   overflow-x: auto;
+
+  input,
+  label {
+    width: 82vw;
+    max-width: 530px;
+    height: 20px;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 16px;
+  }
+
+  label {
+    color: gray;
+    display: block;
+  }
 
   ul,
   li {

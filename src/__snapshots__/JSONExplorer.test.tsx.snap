@@ -4,6 +4,11 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
 <div
   class="json-explorer"
 >
+  <input
+    type="text"
+    value=""
+  />
+  <label />
   <ul
     class="object"
   >
@@ -15,6 +20,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
       </span>
       <span
         class="value string"
+        id="res.date"
       >
         2021-10-27T07:49:14.896Z
       </span>
@@ -27,6 +33,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
       </span>
       <span
         class="value boolean"
+        id="res.hasError"
       >
         false
       </span>
@@ -39,6 +46,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
       </span>
       <span
         class="value number"
+        id="res.token"
       >
         777
       </span>
@@ -60,6 +68,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
           </span>
           <span
             class="value string"
+            id="res.fruits[0]"
           >
             banana
           </span>
@@ -72,6 +81,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
           </span>
           <span
             class="value string"
+            id="res.fruits[1]"
           >
             apple
           </span>
@@ -84,6 +94,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
           </span>
           <span
             class="value string"
+            id="res.fruits[2]"
           >
             orange
           </span>
@@ -111,6 +122,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
               </span>
               <span
                 class="value string"
+                id="res.fields[0].id"
               >
                 4c212130
               </span>
@@ -123,6 +135,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
               </span>
               <span
                 class="value string"
+                id="res.fields[0].prop"
               >
                 iban
               </span>
@@ -135,6 +148,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
               </span>
               <span
                 class="value string"
+                id="res.fields[0].value"
               >
                 DE81200505501265402568
               </span>
@@ -147,6 +161,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
               </span>
               <span
                 class="value boolean"
+                id="res.fields[0].hasError"
               >
                 false
               </span>
@@ -165,6 +180,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
               </span>
               <span
                 class="value number"
+                id="res.fields[1].amount"
               >
                 7.77
               </span>
@@ -177,6 +193,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
               </span>
               <span
                 class="value undefined"
+                id="res.fields[1].size"
               >
                 undefined
               </span>
@@ -189,6 +206,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
               </span>
               <span
                 class="value boolean"
+                id="res.fields[1].hasError"
               >
                 true
               </span>
