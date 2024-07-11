@@ -1,8 +1,16 @@
 import React from "react";
 import "./JSONExplorer.scss";
 
+type JSONValue =
+  | string
+  | number
+  | boolean
+  | { [key: string]: JSONValue }
+  | JSONValue[];
+type JSONObject = { [key: string]: JSONValue };
+
 type JSONExplorerProps = {
-  data: { [key: string]: any };
+  data: JSONObject;
 };
 
 const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
