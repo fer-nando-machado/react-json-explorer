@@ -5,16 +5,58 @@ type JSONValue =
   | string
   | number
   | boolean
-  | { [key: string]: JSONValue }
-  | JSONValue[];
+  | JSONValue[]
+  | undefined
+  | { [key: string]: JSONValue };
 type JSONObject = { [key: string]: JSONValue };
 
 type JSONExplorerProps = {
   data: JSONObject;
 };
 
+const renderValue = (key: string, value: JSONValue, omitKey?: boolean) => {
+  if (Array.isArray(value)) {
+    return (
+      <li key={key}>
+        <span className="key">{key}</span>
+        <ul className="array">
+          {value.map((item, index) =>
+            renderValue(index.toString(), item, true)
+          )}
+        </ul>
+      </li>
+    );
+  }
+
+  const typeOfValue = typeof value;
+  if (typeOfValue === "object") {
+    return (
+      <li key={key}>
+        <ul className="object">
+          {Object.entries(value as Object).map(([subKey, subValue]) =>
+            renderValue(subKey, subValue)
+          )}
+        </ul>
+      </li>
+    );
+  }
+
+  return (
+    <li key={key}>
+      {!omitKey && <span className={`key ${typeOfValue}`}>{key}</span>}
+      <span className={`value ${typeOfValue}`}>{String(value)}</span>
+    </li>
+  );
+};
+
 const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
-  return <pre className="json-explorer">{JSON.stringify(data, null, 4)}</pre>;
+  return (
+    <div className="json-explorer">
+      <ul className="object">
+        {Object.entries(data).map(([key, value]) => renderValue(key, value))}
+      </ul>
+    </div>
+  );
 };
 
 export default JSONExplorer;

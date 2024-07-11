@@ -1,0 +1,145 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`JSONExplorer > should render the component correctly 1`] = `
+<div
+  class="json-explorer"
+>
+  <ul
+    class="object"
+  >
+    <li>
+      <span
+        class="key string"
+      >
+        date
+      </span>
+      <span
+        class="value string"
+      >
+        2021-10-27T07:49:14.896Z
+      </span>
+    </li>
+    <li>
+      <span
+        class="key boolean"
+      >
+        hasError
+      </span>
+      <span
+        class="value boolean"
+      >
+        false
+      </span>
+    </li>
+    <li>
+      <span
+        class="key number"
+      >
+        token
+      </span>
+      <span
+        class="value number"
+      >
+        777
+      </span>
+    </li>
+    <li>
+      <span
+        class="key"
+      >
+        fruits
+      </span>
+      <ul
+        class="array"
+      >
+        <li>
+          <span
+            class="value string"
+          >
+            banana
+          </span>
+        </li>
+        <li>
+          <span
+            class="value string"
+          >
+            apple
+          </span>
+        </li>
+        <li>
+          <span
+            class="value string"
+          >
+            orange
+          </span>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <span
+        class="key"
+      >
+        fields
+      </span>
+      <ul
+        class="array"
+      >
+        <li>
+          <ul
+            class="object"
+          >
+            <li>
+              <span
+                class="key string"
+              >
+                id
+              </span>
+              <span
+                class="value string"
+              >
+                4c212130
+              </span>
+            </li>
+            <li>
+              <span
+                class="key string"
+              >
+                prop
+              </span>
+              <span
+                class="value string"
+              >
+                iban
+              </span>
+            </li>
+            <li>
+              <span
+                class="key string"
+              >
+                value
+              </span>
+              <span
+                class="value string"
+              >
+                DE81200505501265402568
+              </span>
+            </li>
+            <li>
+              <span
+                class="key boolean"
+              >
+                hasError
+              </span>
+              <span
+                class="value boolean"
+              >
+                false
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+`;

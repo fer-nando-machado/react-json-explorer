@@ -3,4 +3,70 @@
   background-color: white;
   border-radius: 12px;
   padding: 12px;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  ul,
+  li {
+    list-style-type: none;
+    padding-left: 18px;
+  }
+
+  ul {
+    &.array {
+      &::before {
+        content: "[";
+      }
+      &::after {
+        content: "],";
+      }
+    }
+
+    &.object {
+      &::before {
+        content: "{";
+      }
+      &::after {
+        content: "},";
+      }
+    }
+  }
+
+  .key {
+    color: blue;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &::after {
+      color: black;
+      content: ": ";
+    }
+  }
+
+  .value {
+    &::after {
+      color: black;
+      content: ",";
+    }
+
+    &.string {
+      color: orange;
+      &::before {
+        color: black;
+        content: "'";
+      }
+      &::after {
+        color: black;
+        content: "',";
+      }
+    }
+
+    &.boolean {
+      color: brown;
+    }
+
+    &.number {
+      color: green;
+    }
+  }
 }
