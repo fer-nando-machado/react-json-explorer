@@ -17,10 +17,13 @@ type JSONExplorerProps = {
 const renderKey = (
   key: string,
   path: string,
-  onClick: (path: string) => void
+  onClick?: (path: string) => void
 ) => {
   return (
-    <span className="key" onClick={() => onClick(path)}>
+    <span
+      className={`key ${onClick ? "clickable" : ""}`}
+      onClick={onClick && (() => onClick(path))}
+    >
       {key}
     </span>
   );
@@ -30,7 +33,7 @@ const renderValue = (
   key: string,
   value: JSONValue,
   path: string,
-  onClick: (path: string) => void,
+  onClick?: (path: string) => void,
   isArrayValue?: boolean
 ) => {
   const typeOfValue = typeof value;
@@ -39,7 +42,7 @@ const renderValue = (
   if (Array.isArray(value)) {
     return (
       <li key={key}>
-        {renderKey(key, currentPath, onClick)}
+        {renderKey(key, currentPath)}
         <ul className="array">
           {value.map((item, index) =>
             renderValue(index.toString(), item, currentPath, onClick, true)
