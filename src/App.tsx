@@ -6,8 +6,11 @@ function App() {
     <div className="App">
       <h1>
         <code>{"<JSON Explorer/>"}</code>
-        <JSONExplorer data={{ hello: "world" }} />
       </h1>
+      <JSONExplorer data={{ hello: "world" }} />
+      <a href="https://github.com/fer-nando-machado/react-json-explorer">
+        GitHub
+      </a>
     </div>
   );
 }
