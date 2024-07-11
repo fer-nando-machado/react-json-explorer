@@ -14,7 +14,7 @@ type JSONExplorerProps = {
 };
 
 const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
-  return <pre className="json-explorer">{JSON.stringify(data, null, 2)}</pre>;
+  return <pre className="json-explorer">{JSON.stringify(data, null, 4)}</pre>;
 };
 
 export default JSONExplorer;
