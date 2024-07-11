@@ -43,7 +43,7 @@ const renderValue = (key: string, value: JSONValue, omitKey?: boolean) => {
 
   return (
     <li key={key}>
-      {!omitKey && <span className={`key ${typeOfValue}`}>{key}</span>}
+      {!omitKey && <span className={`key`}>{key}</span>}
       <span className={`value ${typeOfValue}`}>{String(value)}</span>
     </li>
   );

@@ -53,11 +53,6 @@
   }
 
   .value {
-    &::after {
-      color: black;
-      content: ",";
-    }
-
     &.string {
       color: orange;
       &::before {
@@ -76,6 +71,15 @@
 
     &.number {
       color: green;
+    }
+
+    &.undefined {
+      color: gray;
+    }
+
+    &::after {
+      color: black;
+      content: ",";
     }
   }
 }

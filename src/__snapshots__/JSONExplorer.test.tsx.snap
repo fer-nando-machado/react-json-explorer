@@ -9,7 +9,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
   >
     <li>
       <span
-        class="key string"
+        class="key"
       >
         date
       </span>
@@ -21,7 +21,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
     </li>
     <li>
       <span
-        class="key boolean"
+        class="key"
       >
         hasError
       </span>
@@ -33,7 +33,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
     </li>
     <li>
       <span
-        class="key number"
+        class="key"
       >
         token
       </span>
@@ -90,7 +90,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
           >
             <li>
               <span
-                class="key string"
+                class="key"
               >
                 id
               </span>
@@ -102,7 +102,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
             </li>
             <li>
               <span
-                class="key string"
+                class="key"
               >
                 prop
               </span>
@@ -114,7 +114,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
             </li>
             <li>
               <span
-                class="key string"
+                class="key"
               >
                 value
               </span>
@@ -126,7 +126,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
             </li>
             <li>
               <span
-                class="key boolean"
+                class="key"
               >
                 hasError
               </span>
@@ -134,6 +134,48 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
                 class="value boolean"
               >
                 false
+              </span>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <ul
+            class="object"
+          >
+            <li>
+              <span
+                class="key"
+              >
+                amount
+              </span>
+              <span
+                class="value number"
+              >
+                7.77
+              </span>
+            </li>
+            <li>
+              <span
+                class="key"
+              >
+                size
+              </span>
+              <span
+                class="value undefined"
+              >
+                undefined
+              </span>
+            </li>
+            <li>
+              <span
+                class="key"
+              >
+                hasError
+              </span>
+              <span
+                class="value boolean"
+              >
+                true
               </span>
             </li>
           </ul>

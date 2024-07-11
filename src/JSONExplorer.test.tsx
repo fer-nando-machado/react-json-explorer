@@ -18,6 +18,11 @@ describe("JSONExplorer", () => {
           value: "DE81200505501265402568",
           hasError: false,
         },
+        {
+          amount: 7.77,
+          size: undefined,
+          hasError: true,
+        },
       ],
     };
 

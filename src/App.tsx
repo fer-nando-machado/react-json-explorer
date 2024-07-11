@@ -14,7 +14,8 @@ const data = {
       hasError: false,
     },
     {
-      value: "DE81200505501265402568",
+      amount: 7.77,
+      size: undefined,
       hasError: true,
     },
   ],
