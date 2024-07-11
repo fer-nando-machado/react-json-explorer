@@ -87,8 +87,9 @@ const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
   };
 
   useEffect(() => {
+    if (!property) return;
     const span = document.getElementById(property);
-    setValue(span?.innerText || "");
+    setValue(span?.innerText || "undefined");
   }, [property]);
 
   return (
