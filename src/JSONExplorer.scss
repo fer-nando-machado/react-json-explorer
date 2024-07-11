@@ -37,9 +37,17 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    &:hover {
+      cursor: pointer;
+      font-weight: bold;
+      border-bottom: 1px dotted blue;
+    }
     &::after {
       color: black;
-      content: ": ";
+      content: ":";
+      padding-right: 6px;
+      font-weight: normal;
+      border-bottom: 1px dotted white;
     }
   }
 
