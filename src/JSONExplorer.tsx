@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./JSONExplorer.scss";
 
 type JSONValue =
@@ -92,15 +92,21 @@ const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
     setValue(span?.innerText || "undefined");
   }, [property]);
 
+  const dataTree = useMemo(() => {
+    return (
+      <ul className="object">
+        {Object.entries(data).map(([key, value]) =>
+          renderValue(key, value, "data", onClick)
+        )}
+      </ul>
+    );
+  }, [data]);
+
   return (
     <div className="json-explorer">
       <input type="text" value={property} onChange={onChange}></input>
       <label>{value}</label>
-      <ul className="object">
-        {Object.entries(data).map(([key, value]) =>
-          renderValue(key, value, "res", onClick)
-        )}
-      </ul>
+      {dataTree}
     </div>
   );
 };
