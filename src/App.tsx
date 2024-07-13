@@ -27,7 +27,9 @@ function App() {
       <h1>
         <code>{"<JSON Explorer/>"}</code>
       </h1>
-      <JSONExplorer data={data} />
+      <div className="content">
+        <JSONExplorer data={data} />
+      </div>
       <a href="https://github.com/fer-nando-machado/react-json-explorer">
         GitHub
       </a>

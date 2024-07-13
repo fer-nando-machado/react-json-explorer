@@ -99,7 +99,7 @@ const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
 
   useEffect(() => {
     const innerText = cachedPathValue.get(property);
-    setValue(innerText || "");
+    setValue(innerText || "undefined");
   }, [property]);
 
   const dataTree = useMemo(() => {

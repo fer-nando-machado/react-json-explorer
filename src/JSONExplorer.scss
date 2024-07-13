@@ -1,18 +1,21 @@
 .json-explorer {
-  outline: 1px dashed #777777;
-  background-color: white;
-  border-radius: 12px;
-  padding: 18px;
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   overflow-x: auto;
+  display: flex;
+  flex-direction: column;
 
-  input,
-  label {
-    width: 82vw;
-    max-width: 530px;
-    height: 20px;
+  input {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 16px;
+    padding: 8px;
+    border-radius: 12px;
+    outline: 0;
+    height: 20px;
+    border: 2px solid initial;
+
+    &:focus {
+      border: 2px solid blue;
+    }
   }
 
   label {
@@ -23,7 +26,7 @@
   ul,
   li {
     list-style-type: none;
-    padding-left: 18px;
+    padding-left: 12px;
   }
 
   ul {
@@ -55,9 +58,8 @@
     &::after {
       color: black;
       content: ":";
-      padding-right: 6px;
       font-weight: normal;
-      border-bottom: 1px solid white;
+      padding-right: 6px;
     }
 
     &.clickable {
@@ -65,12 +67,19 @@
       &:hover {
         cursor: pointer;
         font-weight: bold;
-        border-bottom: 1px solid blue;
+        text-decoration: underline;
       }
     }
   }
 
   .value {
+    color: black;
+
+    &::after {
+      color: black;
+      content: ",";
+    }
+
     &.string {
       color: orange;
       &::before {
@@ -93,11 +102,6 @@
 
     &.undefined {
       color: gray;
-    }
-
-    &::after {
-      color: black;
-      content: ",";
     }
   }
 }

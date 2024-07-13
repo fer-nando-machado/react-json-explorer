@@ -12,10 +12,17 @@
 
   a {
     color: initial;
+    &:hover {
+      font-weight: bold;
+    }
   }
 
-  .json-explorer {
-    width: 84vw;
-    max-width: 540px;
+  .content {
+    outline: 2px dashed #777777;
+    background-color: white;
+    border-radius: 12px;
+    padding: 18px;
+    max-width: 500px;
+    width: 80vw;
   }
 }
