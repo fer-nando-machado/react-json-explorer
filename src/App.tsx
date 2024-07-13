@@ -24,6 +24,12 @@ const data = {
 };
 
 function App() {
+  const queryParams = new URLSearchParams(window.location.search);
+  const demoParam = queryParams.get("demo");
+  if (demoParam === "checkbox") {
+    return <custom-checkbox />;
+  }
+
   const [isLargeMode, setLargeMode] = useState(true);
   const onClick = () => {
     setLargeMode(!isLargeMode);

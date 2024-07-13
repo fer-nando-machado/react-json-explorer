@@ -23,7 +23,7 @@
 
   .content {
     outline: 2px dashed #777777;
-    background-color: white;
+    background-color: #ececec;
     border-radius: 12px;
     padding: 18px;
     max-width: 500px;
@@ -48,4 +48,8 @@
     -ms-user-select: none;
     user-select: none;
   }
+}
+
+custom-checkbox {
+  padding: 2px;
 }
