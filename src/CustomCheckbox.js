@@ -20,12 +20,13 @@ class CustomCheckbox extends HTMLElement {
     this.shadowRoot.innerHTML = `
         <style>
           button {
-            width: 14px;
-            height: 14px;
+            width: 13px;
+            height: 13px;
             margin: 3px;
             padding: 0;
+            box-sizing: border-box;
             border: 1px solid black;
-            border-radius: 3px;
+            border-radius: 2px;
             outline: none;
             background-color: white;
           }
@@ -36,10 +37,10 @@ class CustomCheckbox extends HTMLElement {
           }
 
           button.focused {
-            box-shadow: 0 0 0 2px white, 0 0 0 4px blue;
+            box-shadow: 0 0 0 1px white, 0 0 0 2px blue;
           }
         </style>
-        <input type="checkbox" hidden/><button></button>
+        <input type="checkbox"/><button></button>
       `;
     this.nativeCheckbox = this.shadowRoot.querySelector("input");
     this.customCheckbox = this.shadowRoot.querySelector("button");
