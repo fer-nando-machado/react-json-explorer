@@ -7,6 +7,7 @@ type JSONValue =
   | boolean
   | JSONValue[]
   | undefined
+  | null
   | { [key: string]: JSONValue };
 type JSONObject = { [key: string]: JSONValue };
 
@@ -64,7 +65,7 @@ const renderValue = (
     );
   }
 
-  if (typeOfValue === "object") {
+  if (typeOfValue === "object" && value !== null) {
     const objectList = (
       <ul className="object">
         {Object.entries(value as Object).map(([subKey, subValue]) =>

@@ -96,11 +96,15 @@
     }
 
     &.number {
-      color: green;
+      color: forestgreen;
     }
 
     &.undefined {
       color: gray;
+    }
+
+    &.object {
+      color: hotpink;
     }
   }
 }

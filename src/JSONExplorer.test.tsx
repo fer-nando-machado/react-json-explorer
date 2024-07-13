@@ -17,6 +17,7 @@ describe("JSONExplorer", () => {
           prop: "iban",
           value: "DE81200505501265402568",
           hasError: false,
+          ref: null,
         },
         {
           amount: 7.77,

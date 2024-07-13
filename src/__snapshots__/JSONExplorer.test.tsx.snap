@@ -156,6 +156,18 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
                 false
               </span>
             </li>
+            <li>
+              <span
+                class="key clickable"
+              >
+                ref
+              </span>
+              <span
+                class="value object"
+              >
+                null
+              </span>
+            </li>
           </ul>
         </li>
         <li>
