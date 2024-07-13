@@ -114,7 +114,7 @@ const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
 
   return (
     <div className="json-explorer">
-      <input type="text" value={property} onChange={onChange}></input>
+      <input type="text" value={property} onChange={onChange} />
       <label>{value}</label>
       {dataTree}
     </div>

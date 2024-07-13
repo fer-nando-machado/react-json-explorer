@@ -1,17 +1,18 @@
+import { useState } from "react";
 import "./App.scss";
+import "./CustomCheckbox.js";
 import JSONExplorer from "./JSONExplorer";
 
 const data = {
   date: "2021-10-27T07:49:14.896Z",
-  hasError: false,
   token: 777,
   fruits: ["banana", "apple", "orange"],
   fields: [
     {
-      id: "4c212130",
       prop: "iban",
       value: "DE81200505501265402568",
       hasError: false,
+      ref: null,
     },
     {
       amount: 7.77,
@@ -22,8 +23,13 @@ const data = {
 };
 
 function App() {
+  const [isLargeMode, setLargeMode] = useState(true);
+  const onClick = () => {
+    setLargeMode(!isLargeMode);
+  };
+
   return (
-    <div className="App">
+    <div className={`App ${isLargeMode ? "large-mode" : ""}`}>
       <h1>
         <code>{"<JSON Explorer/>"}</code>
       </h1>
@@ -33,6 +39,10 @@ function App() {
       <a href="https://github.com/fer-nando-machado/react-json-explorer">
         GitHub
       </a>
+      <div className="large-mode" onClick={onClick}>
+        <custom-checkbox checked={isLargeMode} />
+        <label>Large Mode</label>
+      </div>
     </div>
   );
 }
