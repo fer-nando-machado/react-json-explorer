@@ -1,7 +1,8 @@
 import { useState } from "react";
-import "./App.scss";
 import "./CustomCheckbox.js";
 import JSONExplorer from "./JSONExplorer";
+import "./App.scss";
+import GitHub from "./assets/github.svg";
 
 const data = {
   date: "2021-10-27T07:49:14.896Z",
@@ -37,7 +38,7 @@ function App() {
         <JSONExplorer data={data} />
       </div>
       <a href="https://github.com/fer-nando-machado/react-json-explorer">
-        GitHub
+        <img src={GitHub} alt="GitHub" height={20} />
       </a>
       <div className="large-mode" onClick={onClick}>
         <custom-checkbox checked={isLargeMode} />
