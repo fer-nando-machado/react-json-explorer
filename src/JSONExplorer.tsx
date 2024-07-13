@@ -24,15 +24,15 @@ const renderKey = (
   return (
     <span
       className={`key ${onClick ? "clickable" : ""}`}
-      onClick={onClick && (() => onClick(path))}
+      onClick={onClick ? () => onClick(path) : undefined}
     >
       {key}
     </span>
   );
 };
 
-const buildPath = (path: string, key: string, isArrayValue?: boolean) => {
-  if (isArrayValue) {
+const buildPath = (path: string, key: string, isArrayIndex?: boolean) => {
+  if (isArrayIndex) {
     return `${path}[${key}]`;
   }
   if (path) {
@@ -46,10 +46,10 @@ const renderValue = (
   value: JSONValue,
   path: string,
   onClick?: (path: string) => void,
-  isArrayValue?: boolean
+  isArrayIndex?: boolean
 ) => {
   const typeOfValue = typeof value;
-  const currentPath = buildPath(path, key, isArrayValue);
+  const currentPath = buildPath(path, key, isArrayIndex);
 
   if (Array.isArray(value)) {
     return (
@@ -65,22 +65,22 @@ const renderValue = (
   }
 
   if (typeOfValue === "object") {
-    return (
-      <li key={key}>
-        <ul className="object">
-          {Object.entries(value as Object).map(([subKey, subValue]) =>
-            renderValue(subKey, subValue, currentPath, onClick)
-          )}
-        </ul>
-      </li>
+    const objectItem = (
+      <ul className="object">
+        {Object.entries(value as Object).map(([subKey, subValue]) =>
+          renderValue(subKey, subValue, currentPath, onClick)
+        )}
+      </ul>
     );
+    return path ? <li key={key}>{objectItem}</li> : objectItem;
   }
 
-  cachedPathValue.set(currentPath, String(value));
+  const valueString = String(value);
+  cachedPathValue.set(currentPath, valueString);
   return (
     <li key={key}>
       {renderKey(key, currentPath, onClick)}
-      <span className={`value ${typeOfValue}`}>{String(value)}</span>
+      <span className={`value ${typeOfValue}`}>{valueString}</span>
     </li>
   );
 };
@@ -104,7 +104,7 @@ const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
 
   const dataTree = useMemo(() => {
     cachedPathValue.clear();
-    return renderValue("res", data, "", onClick);
+    return renderValue("data", data, "", onClick);
   }, [data]);
 
   return (
