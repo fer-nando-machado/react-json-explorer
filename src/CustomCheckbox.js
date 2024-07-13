@@ -40,7 +40,7 @@ class CustomCheckbox extends HTMLElement {
             box-shadow: 0 0 0 1px white, 0 0 0 2px blue;
           }
         </style>
-        <input type="checkbox"/><button></button>
+        <input type="checkbox" hidden/><button></button>
       `;
     this.nativeCheckbox = this.shadowRoot.querySelector("input");
     this.customCheckbox = this.shadowRoot.querySelector("button");
