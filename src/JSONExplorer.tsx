@@ -14,6 +14,8 @@ type JSONExplorerProps = {
   data: JSONObject;
 };
 
+const cachedPathValue = new Map<string, string>();
+
 const renderKey = (
   key: string,
   path: string,
@@ -64,12 +66,12 @@ const renderValue = (
     );
   }
 
+  cachedPathValue.set(currentPath, String(value));
+
   return (
     <li key={key}>
       {renderKey(key, currentPath, onClick)}
-      <span id={currentPath} className={`value ${typeOfValue}`}>
-        {String(value)}
-      </span>
+      <span className={`value ${typeOfValue}`}>{String(value)}</span>
     </li>
   );
 };
@@ -87,12 +89,12 @@ const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
   };
 
   useEffect(() => {
-    if (!property) return;
-    const span = document.getElementById(property);
-    setValue(span?.innerText || "undefined");
+    const innerText = cachedPathValue.get(property);
+    setValue(innerText || "undefined");
   }, [property]);
 
   const dataTree = useMemo(() => {
+    cachedPathValue.clear();
     return (
       <ul className="object">
         {Object.entries(data).map(([key, value]) =>
