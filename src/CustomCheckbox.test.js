@@ -1,9 +1,9 @@
-import { fireEvent } from "@testing-library/dom";
 import "@testing-library/jest-dom";
+import { fireEvent } from "@testing-library/react";
 import "./CustomCheckbox.js";
 
-const renderCustomCheckbox = (attributes) => {
-  document.body.innerHTML = `<custom-checkbox ${attributes}/>`;
+const renderCustomCheckbox = (props) => {
+  document.body.innerHTML = `<custom-checkbox ${props ? props : ""}/>`;
   const shadowRoot = document.querySelector("custom-checkbox").shadowRoot;
   return {
     nativeCheckbox: shadowRoot.querySelector("input"),
@@ -50,7 +50,7 @@ describe("custom-checkbox", () => {
     expect(customCheckbox).not.toHaveClass("checked");
   });
 
-  it("should focus/unfocus custom checkbox when focusing native checkbox (with TAB)", () => {
+  it("should focus/unfocus custom checkbox when focusing native checkbox", () => {
     const { nativeCheckbox, customCheckbox } = renderCustomCheckbox();
 
     nativeCheckbox.focus();
@@ -60,7 +60,7 @@ describe("custom-checkbox", () => {
     expect(customCheckbox).not.toHaveClass("focused");
   });
 
-  it("should check/uncheck native checkbox when checking custom checkbox (with SPACE)", () => {
+  it("should check/uncheck native checkbox when checking custom checkbox with SPACE", () => {
     const { nativeCheckbox, customCheckbox } = renderCustomCheckbox();
 
     customCheckbox.focus();
@@ -69,6 +69,15 @@ describe("custom-checkbox", () => {
     expect(customCheckbox).toHaveClass("checked");
 
     fireEvent.keyDown(customCheckbox, { key: " " });
+    expect(nativeCheckbox).not.toBeChecked();
+    expect(customCheckbox).not.toHaveClass("checked");
+  });
+
+  it("should not be able to check custom checkbox with ENTER (button default behaviour)", () => {
+    const { nativeCheckbox, customCheckbox } = renderCustomCheckbox();
+
+    customCheckbox.focus();
+    fireEvent.keyDown(customCheckbox, { key: "Enter" });
     expect(nativeCheckbox).not.toBeChecked();
     expect(customCheckbox).not.toHaveClass("checked");
   });

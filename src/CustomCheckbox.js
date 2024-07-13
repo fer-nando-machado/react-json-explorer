@@ -17,31 +17,9 @@ class CustomCheckbox extends HTMLElement {
   }
 
   render() {
-    this.shadowRoot.innerHTML = `
-        <style>
-          button {
-            width: 13px;
-            height: 13px;
-            margin: 3px;
-            padding: 0;
-            box-sizing: border-box;
-            border: 1px solid black;
-            border-radius: 2px;
-            outline: none;
-            background-color: white;
-          }
+    this.shadowRoot.innerHTML = `<input type="checkbox" hidden/><button></button>
+<link rel="stylesheet" href="./src/CustomCheckbox.css">`;
 
-          button.checked {
-            background-color: black;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4KPHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9ImJsYWNrIj48L3JlY3Q+Cjxwb2x5bGluZQpwb2ludHM9IjIxNiA3Mi4wMDUgMTA0IDE4NCA0OCAxMjguMDA1IgpmaWxsPSJub25lIgpzdHJva2U9IndoaXRlIgpzdHJva2UtbGluZWNhcD0icm91bmQiCnN0cm9rZS1saW5lam9pbj0icm91bmQiCnN0cm9rZS13aWR0aD0iMTYiPgo8L3BvbHlsaW5lPgo8L3N2Zz4=');
-          }
-
-          button.focused {
-            box-shadow: 0 0 0 1px white, 0 0 0 2px blue;
-          }
-        </style>
-        <input type="checkbox" hidden/><button></button>
-      `;
     this.nativeCheckbox = this.shadowRoot.querySelector("input");
     this.customCheckbox = this.shadowRoot.querySelector("button");
   }
