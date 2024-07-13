@@ -18,7 +18,7 @@ class CustomCheckbox extends HTMLElement {
 
   render() {
     this.shadowRoot.innerHTML = `<input type="checkbox" hidden/><button></button>
-<link rel="stylesheet" href="./src/CustomCheckbox.css">`;
+<link rel="stylesheet" href="./CustomCheckbox.css">`;
 
     this.nativeCheckbox = this.shadowRoot.querySelector("input");
     this.customCheckbox = this.shadowRoot.querySelector("button");
