@@ -8,9 +8,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
     type="text"
     value=""
   />
-  <label>
-    undefined
-  </label>
+  <label />
   <ul
     class="object"
   >

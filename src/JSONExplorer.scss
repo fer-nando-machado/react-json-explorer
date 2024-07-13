@@ -21,6 +21,7 @@
   label {
     color: gray;
     display: block;
+    height: 12px;
   }
 
   ul,
@@ -73,8 +74,6 @@
   }
 
   .value {
-    color: black;
-
     &::after {
       color: black;
       content: ",";

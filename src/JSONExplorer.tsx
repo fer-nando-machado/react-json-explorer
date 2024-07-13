@@ -31,25 +31,25 @@ const renderKey = (
   );
 };
 
-const buildPath = (path: string, key: string, isArrayIndex?: boolean) => {
+const buildPath = (key: string, path?: string, isArrayIndex?: boolean) => {
+  if (!path) {
+    return key;
+  }
   if (isArrayIndex) {
     return `${path}[${key}]`;
   }
-  if (path) {
-    return `${path}.${key}`;
-  }
-  return key;
+  return `${path}.${key}`;
 };
 
 const renderValue = (
   key: string,
   value: JSONValue,
-  path: string,
+  path?: string,
   onClick?: (path: string) => void,
   isArrayIndex?: boolean
 ) => {
   const typeOfValue = typeof value;
-  const currentPath = buildPath(path, key, isArrayIndex);
+  const currentPath = buildPath(key, path, isArrayIndex);
 
   if (Array.isArray(value)) {
     return (
@@ -65,14 +65,14 @@ const renderValue = (
   }
 
   if (typeOfValue === "object") {
-    const objectItem = (
+    const objectList = (
       <ul className="object">
         {Object.entries(value as Object).map(([subKey, subValue]) =>
           renderValue(subKey, subValue, currentPath, onClick)
         )}
       </ul>
     );
-    return path ? <li key={key}>{objectItem}</li> : objectItem;
+    return path ? <li key={key}>{objectList}</li> : objectList;
   }
 
   const valueString = String(value);
@@ -98,13 +98,17 @@ const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
   };
 
   useEffect(() => {
+    if (!property) {
+      setValue("");
+      return;
+    }
     const innerText = cachedPathValue.get(property);
     setValue(innerText || "undefined");
   }, [property]);
 
   const dataTree = useMemo(() => {
     cachedPathValue.clear();
-    return renderValue("data", data, "", onClick);
+    return renderValue("data", data, undefined, onClick);
   }, [data]);
 
   return (
