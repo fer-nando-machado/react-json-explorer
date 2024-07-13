@@ -8,202 +8,202 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
     type="text"
     value=""
   />
-  <label>
-    undefined
-  </label>
-  <ul
-    class="object"
-  >
-    <li>
-      <span
-        class="key clickable"
-      >
-        date
-      </span>
-      <span
-        class="value string"
-      >
-        2021-10-27T07:49:14.896Z
-      </span>
-    </li>
-    <li>
-      <span
-        class="key clickable"
-      >
-        hasError
-      </span>
-      <span
-        class="value boolean"
-      >
-        false
-      </span>
-    </li>
-    <li>
-      <span
-        class="key clickable"
-      >
-        token
-      </span>
-      <span
-        class="value number"
-      >
-        777
-      </span>
-    </li>
-    <li>
-      <span
-        class="key "
-      >
-        fruits
-      </span>
-      <ul
-        class="array"
-      >
-        <li>
-          <span
-            class="key clickable"
-          >
-            0
-          </span>
-          <span
-            class="value string"
-          >
-            banana
-          </span>
-        </li>
-        <li>
-          <span
-            class="key clickable"
-          >
-            1
-          </span>
-          <span
-            class="value string"
-          >
-            apple
-          </span>
-        </li>
-        <li>
-          <span
-            class="key clickable"
-          >
-            2
-          </span>
-          <span
-            class="value string"
-          >
-            orange
-          </span>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <span
-        class="key "
-      >
-        fields
-      </span>
-      <ul
-        class="array"
-      >
-        <li>
-          <ul
-            class="object"
-          >
-            <li>
-              <span
-                class="key clickable"
-              >
-                id
-              </span>
-              <span
-                class="value string"
-              >
-                4c212130
-              </span>
-            </li>
-            <li>
-              <span
-                class="key clickable"
-              >
-                prop
-              </span>
-              <span
-                class="value string"
-              >
-                iban
-              </span>
-            </li>
-            <li>
-              <span
-                class="key clickable"
-              >
-                value
-              </span>
-              <span
-                class="value string"
-              >
-                DE81200505501265402568
-              </span>
-            </li>
-            <li>
-              <span
-                class="key clickable"
-              >
-                hasError
-              </span>
-              <span
-                class="value boolean"
-              >
-                false
-              </span>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <ul
-            class="object"
-          >
-            <li>
-              <span
-                class="key clickable"
-              >
-                amount
-              </span>
-              <span
-                class="value number"
-              >
-                7.77
-              </span>
-            </li>
-            <li>
-              <span
-                class="key clickable"
-              >
-                size
-              </span>
-              <span
-                class="value undefined"
-              >
-                undefined
-              </span>
-            </li>
-            <li>
-              <span
-                class="key clickable"
-              >
-                hasError
-              </span>
-              <span
-                class="value boolean"
-              >
-                true
-              </span>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
+  <label />
+  <li>
+    <ul
+      class="object"
+    >
+      <li>
+        <span
+          class="key clickable"
+        >
+          date
+        </span>
+        <span
+          class="value string"
+        >
+          2021-10-27T07:49:14.896Z
+        </span>
+      </li>
+      <li>
+        <span
+          class="key clickable"
+        >
+          hasError
+        </span>
+        <span
+          class="value boolean"
+        >
+          false
+        </span>
+      </li>
+      <li>
+        <span
+          class="key clickable"
+        >
+          token
+        </span>
+        <span
+          class="value number"
+        >
+          777
+        </span>
+      </li>
+      <li>
+        <span
+          class="key "
+        >
+          fruits
+        </span>
+        <ul
+          class="array"
+        >
+          <li>
+            <span
+              class="key clickable"
+            >
+              0
+            </span>
+            <span
+              class="value string"
+            >
+              banana
+            </span>
+          </li>
+          <li>
+            <span
+              class="key clickable"
+            >
+              1
+            </span>
+            <span
+              class="value string"
+            >
+              apple
+            </span>
+          </li>
+          <li>
+            <span
+              class="key clickable"
+            >
+              2
+            </span>
+            <span
+              class="value string"
+            >
+              orange
+            </span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <span
+          class="key "
+        >
+          fields
+        </span>
+        <ul
+          class="array"
+        >
+          <li>
+            <ul
+              class="object"
+            >
+              <li>
+                <span
+                  class="key clickable"
+                >
+                  id
+                </span>
+                <span
+                  class="value string"
+                >
+                  4c212130
+                </span>
+              </li>
+              <li>
+                <span
+                  class="key clickable"
+                >
+                  prop
+                </span>
+                <span
+                  class="value string"
+                >
+                  iban
+                </span>
+              </li>
+              <li>
+                <span
+                  class="key clickable"
+                >
+                  value
+                </span>
+                <span
+                  class="value string"
+                >
+                  DE81200505501265402568
+                </span>
+              </li>
+              <li>
+                <span
+                  class="key clickable"
+                >
+                  hasError
+                </span>
+                <span
+                  class="value boolean"
+                >
+                  false
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <ul
+              class="object"
+            >
+              <li>
+                <span
+                  class="key clickable"
+                >
+                  amount
+                </span>
+                <span
+                  class="value number"
+                >
+                  7.77
+                </span>
+              </li>
+              <li>
+                <span
+                  class="key clickable"
+                >
+                  size
+                </span>
+                <span
+                  class="value undefined"
+                >
+                  undefined
+                </span>
+              </li>
+              <li>
+                <span
+                  class="key clickable"
+                >
+                  hasError
+                </span>
+                <span
+                  class="value boolean"
+                >
+                  true
+                </span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </div>
 `;

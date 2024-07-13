@@ -31,6 +31,16 @@ const renderKey = (
   );
 };
 
+const buildPath = (path: string, key: string, isArrayValue?: boolean) => {
+  if (isArrayValue) {
+    return `${path}[${key}]`;
+  }
+  if (path) {
+    return `${path}.${key}`;
+  }
+  return key;
+};
+
 const renderValue = (
   key: string,
   value: JSONValue,
@@ -39,7 +49,7 @@ const renderValue = (
   isArrayValue?: boolean
 ) => {
   const typeOfValue = typeof value;
-  const currentPath = `${path}${isArrayValue ? `[${key}]` : `.${key}`}`;
+  const currentPath = buildPath(path, key, isArrayValue);
 
   if (Array.isArray(value)) {
     return (
@@ -67,7 +77,6 @@ const renderValue = (
   }
 
   cachedPathValue.set(currentPath, String(value));
-
   return (
     <li key={key}>
       {renderKey(key, currentPath, onClick)}
@@ -90,18 +99,12 @@ const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
 
   useEffect(() => {
     const innerText = cachedPathValue.get(property);
-    setValue(innerText || "undefined");
+    setValue(innerText || "");
   }, [property]);
 
   const dataTree = useMemo(() => {
     cachedPathValue.clear();
-    return (
-      <ul className="object">
-        {Object.entries(data).map(([key, value]) =>
-          renderValue(key, value, "data", onClick)
-        )}
-      </ul>
-    );
+    return renderValue("res", data, "", onClick);
   }, [data]);
 
   return (
