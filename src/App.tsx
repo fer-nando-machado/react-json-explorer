@@ -47,8 +47,7 @@ function App() {
         <img src={GitHub} alt="GitHub" height={24} />
       </a>
       <div className="large-mode" onClick={onClick}>
-        <custom-checkbox checked={isLargeMode} />
-        Large Mode
+        <custom-checkbox checked={isLargeMode} /> Large Mode
       </div>
     </div>
   );
