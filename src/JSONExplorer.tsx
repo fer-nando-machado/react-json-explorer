@@ -114,8 +114,13 @@ const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
 
   return (
     <div className="json-explorer">
-      <input type="text" value={property} onChange={onChange} />
-      <label>{value}</label>
+      <input
+        type="text"
+        value={property}
+        placeholder="Property"
+        onChange={onChange}
+      />
+      <aside>{value}</aside>
       {dataTree}
     </div>
   );

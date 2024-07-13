@@ -18,7 +18,7 @@
     }
   }
 
-  label {
+  aside {
     color: gray;
     display: block;
     height: 14px;
@@ -74,6 +74,8 @@
   }
 
   .value {
+    white-space: nowrap;
+
     &::after {
       color: black;
       content: ",";

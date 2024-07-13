@@ -1,14 +1,15 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`JSONExplorer > should render the component correctly 1`] = `
+exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = `
 <div
   class="json-explorer"
 >
   <input
+    placeholder="Property"
     type="text"
     value=""
   />
-  <label />
+  <aside />
   <ul
     class="object"
   >
@@ -129,7 +130,7 @@ exports[`JSONExplorer > should render the component correctly 1`] = `
               <span
                 class="value string"
               >
-                iban
+                IBAN
               </span>
             </li>
             <li>

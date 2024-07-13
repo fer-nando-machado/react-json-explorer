@@ -10,7 +10,7 @@ const data = {
   fruits: ["banana", "apple", "orange"],
   fields: [
     {
-      prop: "iban",
+      prop: "IBAN",
       value: "DE81200505501265402568",
       hasError: false,
       ref: null,
@@ -44,11 +44,11 @@ function App() {
         <JSONExplorer data={data} />
       </div>
       <a href="https://github.com/fer-nando-machado/react-json-explorer">
-        <img src={GitHub} alt="GitHub" height={20} />
+        <img src={GitHub} alt="GitHub" height={24} />
       </a>
       <div className="large-mode" onClick={onClick}>
         <custom-checkbox checked={isLargeMode} />
-        <label>Large Mode</label>
+        Large Mode
       </div>
     </div>
   );
