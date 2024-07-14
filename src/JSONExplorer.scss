@@ -9,7 +9,7 @@
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 16px;
     padding: 10px;
-    margin: 0 4px;
+    margin: 0 6px;
     border-radius: 12px;
     outline: 0;
     height: 20px;
@@ -23,15 +23,18 @@
   aside {
     color: gray;
     margin: 0 16px;
-    height: 10px;
-    font-size: 16px;
+    height: 14px;
     font-weight: bold;
   }
 
-  ul,
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
   li {
     list-style-type: none;
-    padding-left: 8px;
+    padding-left: 16px;
   }
 
   .key {
