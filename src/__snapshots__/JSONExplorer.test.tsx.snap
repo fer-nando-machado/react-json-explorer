@@ -149,24 +149,24 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
               <span
                 class="key clickable"
               >
-                ref
-              </span>
-              <span
-                class="value object"
-              >
-                null
-              </span>
-            </li>
-            <li>
-              <span
-                class="key clickable"
-              >
                 hasError
               </span>
               <span
                 class="value boolean"
               >
                 true
+              </span>
+            </li>
+            <li>
+              <span
+                class="key clickable"
+              >
+                ref
+              </span>
+              <span
+                class="value object"
+              >
+                null
               </span>
             </li>
           </ul>
@@ -191,24 +191,24 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
               <span
                 class="key clickable"
               >
-                method
-              </span>
-              <span
-                class="value undefined"
-              >
-                undefined
-              </span>
-            </li>
-            <li>
-              <span
-                class="key clickable"
-              >
                 hasError
               </span>
               <span
                 class="value boolean"
               >
                 false
+              </span>
+            </li>
+            <li>
+              <span
+                class="key clickable"
+              >
+                method
+              </span>
+              <span
+                class="value undefined"
+              >
+                undefined
               </span>
             </li>
           </ul>

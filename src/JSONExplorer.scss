@@ -1,8 +1,9 @@
 .json-explorer {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  overflow-x: auto;
   display: flex;
   flex-direction: column;
+  overflow-x: auto;
+  white-space: nowrap;
 
   input {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -23,7 +24,7 @@
     color: gray;
     margin: 0 16px;
     height: 10px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
   }
 
@@ -77,8 +78,6 @@
   }
 
   .value {
-    white-space: nowrap;
-
     &::after {
       color: black;
       content: ",";
