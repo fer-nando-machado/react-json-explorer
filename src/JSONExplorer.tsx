@@ -81,7 +81,7 @@ const renderValue = (
             renderValue(subKey, subValue, currentPath, onClick)
           )}
         </ul>
-        {!isFirst && "}"}
+        {!isFirst && "},"}
       </>
     );
     return isFirst ? renderObject() : <li key={key}>{renderObject()}</li>;
