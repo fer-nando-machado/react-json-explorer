@@ -12,16 +12,16 @@
     border-radius: 12px;
     outline: 0;
     height: 20px;
-    border: 2px solid initial;
+    border: 2px inset gray;
 
     &:focus {
-      border: 2px solid blue;
+      border: 2px inset blue;
     }
   }
 
   aside {
     color: gray;
-    margin: 0 12px;
+    margin: 0 14px;
     height: 14px;
   }
 
