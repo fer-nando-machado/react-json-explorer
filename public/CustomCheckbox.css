@@ -12,7 +12,7 @@ button {
 
 button.checked {
   background-color: black;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2Ij4KPHJlY3Qgd2lkdGg9IjI1NiIgaGVpZ2h0PSIyNTYiIGZpbGw9ImJsYWNrIj48L3JlY3Q+Cjxwb2x5bGluZQpwb2ludHM9IjIxNiA3Mi4wMDUgMTA0IDE4NCA0OCAxMjguMDA1IgpmaWxsPSJub25lIgpzdHJva2U9IndoaXRlIgpzdHJva2UtbGluZWNhcD0icm91bmQiCnN0cm9rZS1saW5lam9pbj0icm91bmQiCnN0cm9rZS13aWR0aD0iMTYiPgo8L3BvbHlsaW5lPgo8L3N2Zz4=");
+  background-image: url("CustomCheckbox.svg");
 }
 
 button.focused::after {
