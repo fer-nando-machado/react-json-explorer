@@ -22,24 +22,27 @@ const renderKey = (
   path: string,
   onClick?: (path: string) => void
 ) => {
+  const clickable = onClick ? "clickable" : "";
+  const unselectable = !isNaN(Number(key)) ? "unselectable" : "";
+
   return (
     <>
       <span
-        className={`key ${onClick ? "clickable" : ""}`}
+        className={`key ${clickable} ${unselectable}`}
         onClick={onClick ? () => onClick(path) : undefined}
       >
         {key}
       </span>
-      {": "}
+      <span className={unselectable}>{": "}</span>
     </>
   );
 };
 
-const buildPath = (key: string, path?: string, isArrayIndex?: boolean) => {
+const buildPath = (key: string, path?: string) => {
   if (!path) {
     return key;
   }
-  if (isArrayIndex) {
+  if (!isNaN(Number(key))) {
     return `${path}[${key}]`;
   }
   return `${path}.${key}`;
@@ -49,41 +52,37 @@ const renderValue = (
   key: string,
   value: JSONValue,
   path?: string,
-  onClick?: (path: string) => void,
-  isArrayIndex?: boolean
+  onClick?: (path: string) => void
 ) => {
   const typeOfValue = typeof value;
-  const currentPath = buildPath(key, path, isArrayIndex);
+  const currentPath = buildPath(key, path);
 
   if (Array.isArray(value)) {
     return (
       <li key={key}>
-        {renderKey(key, currentPath)}
+        {renderKey(key, currentPath)} {"["}
         <ul className="array">
-          {"["}
           {value.map((item, index) =>
-            renderValue(index.toString(), item, currentPath, onClick, true)
+            renderValue(index.toString(), item, currentPath, onClick)
           )}
-          {"],"}
         </ul>
+        {"],"}
       </li>
     );
   }
 
   if (typeOfValue === "object" && value !== null) {
+    const entries = Object.entries(value as Object).map(([subKey, subValue]) =>
+      renderValue(subKey, subValue, currentPath, onClick)
+    );
+
     return !path ? (
-      <ul className="object">
-        {Object.entries(value as Object).map(([subKey, subValue]) =>
-          renderValue(subKey, subValue, currentPath, onClick)
-        )}
-      </ul>
+      <ul className="object">{entries}</ul>
     ) : (
       <li key={key}>
         <ul className="object">
           {"{"}
-          {Object.entries(value as Object).map(([subKey, subValue]) =>
-            renderValue(subKey, subValue, currentPath, onClick)
-          )}
+          {entries}
           {"},"}
         </ul>
       </li>

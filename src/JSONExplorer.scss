@@ -22,6 +22,7 @@
 
   aside {
     color: gray;
+    font-size: smaller;
     margin: 0 16px;
     height: 14px;
     font-weight: bold;
@@ -68,5 +69,13 @@
     &.object {
       color: hotpink;
     }
+  }
+
+  .unselectable {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    opacity: 0.5;
   }
 }
