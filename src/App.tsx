@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./CustomCheckbox.js";
 import JSONExplorer from "./JSONExplorer";
 import "./App.scss";
-import GitHub from "./assets/github.svg";
+import GitHub from "/GitHub.svg?url";
 
 const data = {
   date: "2021-10-27T07:49:14.896Z",
