@@ -167,10 +167,10 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
         class="array"
       >
         <li>
+          {
           <ul
             class="object"
           >
-            {
             <li>
               <span
                 class="key clickable "
@@ -267,14 +267,14 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
               </span>
               ,
             </li>
-            },
           </ul>
+          }
         </li>
         <li>
+          {
           <ul
             class="object"
           >
-            {
             <li>
               <span
                 class="key clickable "
@@ -329,8 +329,8 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
               </span>
               ,
             </li>
-            },
           </ul>
+          }
         </li>
       </ul>
       ],

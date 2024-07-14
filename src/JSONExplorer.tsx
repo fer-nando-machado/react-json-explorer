@@ -72,21 +72,19 @@ const renderValue = (
   }
 
   if (typeOfValue === "object" && value !== null) {
-    const entries = Object.entries(value as Object).map(([subKey, subValue]) =>
-      renderValue(subKey, subValue, currentPath, onClick)
-    );
-
-    return !path ? (
-      <ul className="object">{entries}</ul>
-    ) : (
-      <li key={key}>
+    const isFirst = !path;
+    const renderObject = () => (
+      <>
+        {!isFirst && "{"}
         <ul className="object">
-          {"{"}
-          {entries}
-          {"},"}
+          {Object.entries(value as Object).map(([subKey, subValue]) =>
+            renderValue(subKey, subValue, currentPath, onClick)
+          )}
         </ul>
-      </li>
+        {!isFirst && "}"}
+      </>
     );
+    return isFirst ? renderObject() : <li key={key}>{renderObject()}</li>;
   }
 
   const valueString = String(value);
