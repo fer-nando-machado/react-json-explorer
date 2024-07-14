@@ -1,8 +1,34 @@
 # react-json-explorer
 
-A component to select keys from a JSON object that returns the key’s path and value.
+A component that renders a formatted JSON and explores its values through key selecting and path text inputs.
 
-## Development Commands
+## Usage
+
+```ts
+const data = {
+  timestamp: "2021-10-27T07:49:14.896Z",
+  token: 777,
+  permissions: ["create", "read", "update", "delete"],
+  fields: [
+    {
+      id: "d1a2d386-8042-48a2-a1dd-d760e2fc09fb",
+      prop: "iban",
+      value: "DE81200505501265402568",
+      ref: null,
+      hasError: true,
+    },
+    {
+      amount: 7.77,
+      method: undefined,
+      hasError: false,
+    },
+  ],
+};
+
+<JSONExplorer data={data} />;
+```
+
+## Commands
 
 In the project directory, you can run:
 

@@ -5,20 +5,21 @@ import "./App.scss";
 import GitHub from "/GitHub.svg?url";
 
 const data = {
-  date: "2021-10-27T07:49:14.896Z",
+  timestamp: "2021-10-27T07:49:14.896Z",
   token: 777,
-  fruits: ["banana", "apple", "orange"],
+  permissions: ["create", "read", "update", "delete"],
   fields: [
     {
-      prop: "IBAN",
+      id: "d1a2d386-8042-48a2-a1dd-d760e2fc09fb",
+      prop: "iban",
       value: "DE81200505501265402568",
-      hasError: false,
       ref: null,
+      hasError: true,
     },
     {
       amount: 7.77,
-      size: undefined,
-      hasError: true,
+      method: undefined,
+      hasError: false,
     },
   ],
 };
