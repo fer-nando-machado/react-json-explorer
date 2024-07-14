@@ -31,42 +31,10 @@
   ul,
   li {
     list-style-type: none;
-    padding-left: 12px;
-  }
-
-  ul {
-    &.array {
-      &::before {
-        content: "[";
-      }
-      &::after {
-        content: "],";
-      }
-    }
-
-    &.object {
-      &::before {
-        content: "{";
-      }
-      &::after {
-        content: "},";
-      }
-    }
+    padding-left: 8px;
   }
 
   .key {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    &::after {
-      color: black;
-      content: ":";
-      font-weight: normal;
-      padding-right: 6px;
-    }
-
     &.clickable {
       color: blue;
       &:hover {
@@ -78,21 +46,8 @@
   }
 
   .value {
-    &::after {
-      color: black;
-      content: ",";
-    }
-
     &.string {
       color: orange;
-      &::before {
-        color: black;
-        content: "'";
-      }
-      &::after {
-        color: black;
-        content: "',";
-      }
     }
 
     &.boolean {

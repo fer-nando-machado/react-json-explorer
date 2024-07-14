@@ -23,12 +23,15 @@ const renderKey = (
   onClick?: (path: string) => void
 ) => {
   return (
-    <span
-      className={`key ${onClick ? "clickable" : ""}`}
-      onClick={onClick ? () => onClick(path) : undefined}
-    >
-      {key}
-    </span>
+    <>
+      <span
+        className={`key ${onClick ? "clickable" : ""}`}
+        onClick={onClick ? () => onClick(path) : undefined}
+      >
+        {key}
+      </span>
+      {": "}
+    </>
   );
 };
 
@@ -57,31 +60,46 @@ const renderValue = (
       <li key={key}>
         {renderKey(key, currentPath)}
         <ul className="array">
+          {"["}
           {value.map((item, index) =>
             renderValue(index.toString(), item, currentPath, onClick, true)
           )}
+          {"],"}
         </ul>
       </li>
     );
   }
 
   if (typeOfValue === "object" && value !== null) {
-    const objectList = (
+    return !path ? (
       <ul className="object">
         {Object.entries(value as Object).map(([subKey, subValue]) =>
           renderValue(subKey, subValue, currentPath, onClick)
         )}
       </ul>
+    ) : (
+      <li key={key}>
+        <ul className="object">
+          {"{"}
+          {Object.entries(value as Object).map(([subKey, subValue]) =>
+            renderValue(subKey, subValue, currentPath, onClick)
+          )}
+          {"},"}
+        </ul>
+      </li>
     );
-    return path ? <li key={key}>{objectList}</li> : objectList;
   }
 
   const valueString = String(value);
   cachedPathValue.set(currentPath, valueString);
+  const appendQuotes = typeOfValue === "string";
+
   return (
     <li key={key}>
       {renderKey(key, currentPath, onClick)}
+      {appendQuotes && "'"}
       <span className={`value ${typeOfValue}`}>{valueString}</span>
+      {appendQuotes && "'"},
     </li>
   );
 };

@@ -19,11 +19,15 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
       >
         timestamp
       </span>
+      : 
+      '
       <span
         class="value string"
       >
         2021-10-27T07:49:14.896Z
       </span>
+      '
+      ,
     </li>
     <li>
       <span
@@ -31,11 +35,13 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
       >
         token
       </span>
+      : 
       <span
         class="value number"
       >
         777
       </span>
+      ,
     </li>
     <li>
       <span
@@ -43,20 +49,26 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
       >
         permissions
       </span>
+      : 
       <ul
         class="array"
       >
+        [
         <li>
           <span
             class="key clickable"
           >
             0
           </span>
+          : 
+          '
           <span
             class="value string"
           >
             create
           </span>
+          '
+          ,
         </li>
         <li>
           <span
@@ -64,11 +76,15 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
           >
             1
           </span>
+          : 
+          '
           <span
             class="value string"
           >
             read
           </span>
+          '
+          ,
         </li>
         <li>
           <span
@@ -76,11 +92,15 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
           >
             2
           </span>
+          : 
+          '
           <span
             class="value string"
           >
             update
           </span>
+          '
+          ,
         </li>
         <li>
           <span
@@ -88,12 +108,17 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
           >
             3
           </span>
+          : 
+          '
           <span
             class="value string"
           >
             delete
           </span>
+          '
+          ,
         </li>
+        ],
       </ul>
     </li>
     <li>
@@ -102,24 +127,31 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
       >
         fields
       </span>
+      : 
       <ul
         class="array"
       >
+        [
         <li>
           <ul
             class="object"
           >
+            {
             <li>
               <span
                 class="key clickable"
               >
                 id
               </span>
+              : 
+              '
               <span
                 class="value string"
               >
                 d1a2d386-8042-48a2-a1dd-d760e2fc09fb
               </span>
+              '
+              ,
             </li>
             <li>
               <span
@@ -127,11 +159,15 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
               >
                 prop
               </span>
+              : 
+              '
               <span
                 class="value string"
               >
                 iban
               </span>
+              '
+              ,
             </li>
             <li>
               <span
@@ -139,11 +175,15 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
               >
                 value
               </span>
+              : 
+              '
               <span
                 class="value string"
               >
                 DE81200505501265402568
               </span>
+              '
+              ,
             </li>
             <li>
               <span
@@ -151,11 +191,13 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
               >
                 hasError
               </span>
+              : 
               <span
                 class="value boolean"
               >
                 true
               </span>
+              ,
             </li>
             <li>
               <span
@@ -163,29 +205,35 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
               >
                 ref
               </span>
+              : 
               <span
                 class="value object"
               >
                 null
               </span>
+              ,
             </li>
+            },
           </ul>
         </li>
         <li>
           <ul
             class="object"
           >
+            {
             <li>
               <span
                 class="key clickable"
               >
                 amount
               </span>
+              : 
               <span
                 class="value number"
               >
                 7.77
               </span>
+              ,
             </li>
             <li>
               <span
@@ -193,11 +241,13 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
               >
                 hasError
               </span>
+              : 
               <span
                 class="value boolean"
               >
                 false
               </span>
+              ,
             </li>
             <li>
               <span
@@ -205,14 +255,18 @@ exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = 
               >
                 method
               </span>
+              : 
               <span
                 class="value undefined"
               >
                 undefined
               </span>
+              ,
             </li>
+            },
           </ul>
         </li>
+        ],
       </ul>
     </li>
   </ul>

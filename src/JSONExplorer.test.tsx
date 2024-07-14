@@ -15,7 +15,7 @@ describe("JSONExplorer", () => {
 
     expect(input).toHaveValue("");
     expect(aside).toHaveTextContent("");
-    expect(list).toHaveTextContent("keyvalue");
+    expect(list).toHaveTextContent("key: 'value',");
   });
 
   it("should update complementary value according to textbox property changes", () => {
