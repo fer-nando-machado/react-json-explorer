@@ -87,16 +87,15 @@ const renderValue = (
     return isFirst ? renderObject() : <li key={key}>{renderObject()}</li>;
   }
 
+  const isString = typeOfValue === "string";
   const valueString = String(value);
   cachedPathValue.set(currentPath, valueString);
-  const appendQuotes = typeOfValue === "string";
-
   return (
     <li key={key}>
       {renderKey(key, currentPath, onClick)}
-      {appendQuotes && "'"}
+      {isString && "'"}
       <span className={`value ${typeOfValue}`}>{valueString}</span>
-      {appendQuotes && "'"},
+      {isString && "'"},
     </li>
   );
 };
