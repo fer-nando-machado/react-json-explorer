@@ -17,21 +17,17 @@ class CustomCheckbox extends HTMLElement {
   }
 
   render() {
-    this.shadowRoot.innerHTML = `<input type="checkbox" hidden/><button></button>
-<link rel="stylesheet" href="./CustomCheckbox.css">`;
+    this.shadowRoot.innerHTML = `<link rel="stylesheet" href="./CustomCheckbox.css">
+<input type="checkbox" hidden/><button></button>`;
 
     this.nativeCheckbox = this.shadowRoot.querySelector("input");
     this.customCheckbox = this.shadowRoot.querySelector("button");
   }
 
   bindMethods() {
-    this.toggleNativeCheckbox = this.toggleNativeCheckbox.bind(this);
     this.updateCustomCheckbox = this.updateCustomCheckbox.bind(this);
-  }
-
-  toggleNativeCheckbox() {
-    this.nativeCheckbox.checked = !this.nativeCheckbox.checked;
-    this.updateCustomCheckbox();
+    this.focusCustomCheckbox = this.focusCustomCheckbox.bind(this);
+    this.clickNativeCheckbox = this.clickNativeCheckbox.bind(this);
   }
 
   updateCustomCheckbox() {
@@ -39,29 +35,38 @@ class CustomCheckbox extends HTMLElement {
     this.customCheckbox.classList.toggle("checked", nativeChecked);
   }
 
+  focusCustomCheckbox(focused) {
+    this.customCheckbox.classList.toggle("focused", focused);
+  }
+
+  clickNativeCheckbox() {
+    this.nativeCheckbox.checked = !this.nativeCheckbox.checked;
+    this.updateCustomCheckbox();
+  }
+
   setupEventListeners() {
-    this.customCheckbox.addEventListener("click", this.toggleNativeCheckbox);
+    this.customCheckbox.addEventListener("click", this.clickNativeCheckbox);
     this.customCheckbox.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
         event.preventDefault();
       } else if (event.key === " ") {
         event.preventDefault();
-        this.toggleNativeCheckbox();
+        this.clickNativeCheckbox();
       }
     });
     this.customCheckbox.addEventListener("focus", () => {
-      this.customCheckbox.classList.add("focused");
+      this.focusCustomCheckbox(true);
     });
     this.customCheckbox.addEventListener("blur", () => {
-      this.customCheckbox.classList.remove("focused");
+      this.focusCustomCheckbox(false);
     });
 
     this.nativeCheckbox.addEventListener("change", this.updateCustomCheckbox);
     this.nativeCheckbox.addEventListener("focus", () => {
-      this.customCheckbox.classList.add("focused");
+      this.focusCustomCheckbox(true);
     });
     this.nativeCheckbox.addEventListener("blur", () => {
-      this.customCheckbox.classList.remove("focused");
+      this.focusCustomCheckbox(false);
     });
   }
 }
