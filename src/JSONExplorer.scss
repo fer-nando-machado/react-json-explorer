@@ -1,12 +1,11 @@
 .json-explorer {
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   display: flex;
   flex-direction: column;
   overflow-x: auto;
   white-space: nowrap;
 
   input {
-    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-family: inherit;
     font-size: inherit;
     padding: 10px;
     margin: 0 4px;
@@ -24,7 +23,7 @@
     color: gray;
     font-size: smaller;
     margin: 0 16px;
-    height: 14px;
+    height: 12px;
     font-weight: bold;
   }
 

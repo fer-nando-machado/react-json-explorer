@@ -38,9 +38,7 @@ function App() {
 
   return (
     <div className={`App ${isLargeMode ? "large-mode" : ""}`}>
-      <h1>
-        <code>{"<JSON Explorer/>"}</code>
-      </h1>
+      <h1>{"<JSON Explorer/>"}</h1>
       <div className="content">
         <JSONExplorer data={data} />
       </div>
