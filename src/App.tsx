@@ -47,7 +47,7 @@ function App() {
       <a href="https://github.com/fer-nando-machado/react-json-explorer">
         <img src={GitHub} alt="GitHub" height={24} />
       </a>
-      <div className="large-mode" onClick={onClick}>
+      <div className="large-mode-control" onClick={onClick}>
         <custom-checkbox checked={isLargeMode} /> Large Mode
       </div>
     </div>
