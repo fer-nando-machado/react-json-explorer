@@ -3,6 +3,12 @@ import userEvent from "@testing-library/user-event";
 import { fireEvent } from "@testing-library/react";
 import "./CustomCheckbox.js";
 
+global.fetch = vi.fn(() =>
+  Promise.resolve({
+    text: () => Promise.resolve("<svg></svg>"),
+  })
+);
+
 const renderCustomCheckbox = (props) => {
   document.body.innerHTML = `<custom-checkbox ${props ? props : ""}/>`;
   const shadowRoot = document.querySelector("custom-checkbox").shadowRoot;
@@ -11,6 +17,7 @@ const renderCustomCheckbox = (props) => {
     customCheckbox: shadowRoot.querySelector("button"),
   };
 };
+
 describe("custom-checkbox", () => {
   it("should render checkboxes with default visibility", () => {
     const { nativeCheckbox, customCheckbox } = renderCustomCheckbox();
