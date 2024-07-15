@@ -15,14 +15,29 @@ type JSONExplorerProps = {
   data: JSONObject;
 };
 
+const cachedPathValue = new Map<string, string>();
+
+const isArrayIndex = (key: string) => {
+  return !isNaN(Number(key));
+};
+
+const buildPath = (key: string, path?: string) => {
+  if (!path) {
+    return key;
+  }
+  if (isArrayIndex(key)) {
+    return `${path}[${key}]`;
+  }
+  return `${path}.${key}`;
+};
+
 const renderKey = (
   key: string,
   path: string,
   onClick?: (path: string) => void
 ) => {
   const clickable = onClick ? "clickable" : "";
-  const unselectable = !isNaN(Number(key)) ? "unselectable" : "";
-
+  const unselectable = isArrayIndex(key) ? "unselectable" : "";
   return (
     <>
       <span
@@ -34,16 +49,6 @@ const renderKey = (
       <span className={unselectable}>{": "}</span>
     </>
   );
-};
-
-const buildPath = (key: string, path?: string) => {
-  if (!path) {
-    return key;
-  }
-  if (!isNaN(Number(key))) {
-    return `${path}[${key}]`;
-  }
-  return `${path}.${key}`;
 };
 
 const renderValue = (
@@ -61,7 +66,7 @@ const renderValue = (
         {renderKey(key, currentPath)} {"["}
         <ul className="array">
           {value.map((item, index) =>
-            renderValue(index.toString(), item, currentPath, onClick)
+            renderValue(String(index), item, currentPath, onClick)
           )}
         </ul>
         {"],"}
@@ -71,23 +76,24 @@ const renderValue = (
 
   if (typeOfValue === "object" && value !== null) {
     const isFirst = !path;
-    const renderObject = () => (
+    const objectList = (
       <>
         {!isFirst && "{"}
         <ul className="object">
-          {Object.entries(value as Object).map(([subKey, subValue]) =>
-            renderValue(subKey, subValue, currentPath, onClick)
+          {Object.entries(value as Object).map(([objectKey, objectValue]) =>
+            renderValue(objectKey, objectValue, currentPath, onClick)
           )}
         </ul>
         {!isFirst && "},"}
       </>
     );
-    return isFirst ? renderObject() : <li key={key}>{renderObject()}</li>;
+    return !isFirst ? <li key={key}>{objectList}</li> : objectList;
   }
 
-  const isString = typeOfValue === "string";
   const valueString = String(value);
   cachedPathValue.set(currentPath, valueString);
+
+  const isString = typeOfValue === "string";
   return (
     <li key={key}>
       {renderKey(key, currentPath, onClick)}
@@ -97,8 +103,6 @@ const renderValue = (
     </li>
   );
 };
-
-const cachedPathValue = new Map<string, string>();
 
 const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
   const [property, setProperty] = useState("");
