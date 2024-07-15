@@ -4,9 +4,6 @@ class CustomCheckbox extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.render();
-    this.bindMethods();
-    this.setupEventListeners();
   }
 
   attributeChangedCallback(name, _oldValue, newValue) {
@@ -16,9 +13,18 @@ class CustomCheckbox extends HTMLElement {
     }
   }
 
-  render() {
+  async connectedCallback() {
+    const svg = await fetch("./CustomCheckbox.svg");
+    this.render({
+      svg: await svg.text(),
+    });
+    this.bindMethods();
+    this.setupEventListeners();
+  }
+
+  render({ svg }) {
     this.shadowRoot.innerHTML = `<link rel="stylesheet" href="./CustomCheckbox.css">
-<input type="checkbox" hidden/><button></button>`;
+    <input type="checkbox" hidden/><button>${svg}</button>`;
 
     this.nativeCheckbox = this.shadowRoot.querySelector("input");
     this.customCheckbox = this.shadowRoot.querySelector("button");
