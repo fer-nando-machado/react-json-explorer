@@ -11,8 +11,16 @@ button {
 }
 
 button.checked {
+  color: white;
   background-color: black;
-  background-image: url("CustomCheckbox.svg");
+}
+
+button svg {
+  display: none;
+}
+
+button.checked svg {
+  display: block;
 }
 
 button.focused::after {
