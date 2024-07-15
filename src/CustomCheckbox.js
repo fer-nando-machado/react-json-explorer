@@ -1,6 +1,4 @@
 class CustomCheckbox extends HTMLElement {
-  static observedAttributes = ["checked"];
-
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -9,16 +7,13 @@ class CustomCheckbox extends HTMLElement {
     this.setupEventListeners();
   }
 
+  static observedAttributes = ["checked"];
+
   attributeChangedCallback(name, _oldValue, newValue) {
     if (name === "checked") {
       this.nativeCheckbox.checked = newValue === "true";
       this.updateCustomCheckbox();
     }
-  }
-
-  async connectedCallback() {
-    const svg = await fetch("./CustomCheckbox.svg");
-    this.customCheckbox.innerHTML = await svg.text();
   }
 
   render() {
@@ -27,6 +22,10 @@ class CustomCheckbox extends HTMLElement {
 
     this.nativeCheckbox = this.shadowRoot.querySelector("input");
     this.customCheckbox = this.shadowRoot.querySelector("button");
+  }
+
+  connectedCallback() {
+    this.customCheckbox.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="none" d="M0 0h256v256H0z"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" d="M216 72.005 104 184l-56-55.995"/></svg>`;
   }
 
   bindMethods() {
