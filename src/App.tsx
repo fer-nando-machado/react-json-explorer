@@ -6,7 +6,7 @@ import GitHub from "/GitHub.svg?url";
 
 const data = {
   timestamp: "2021-10-27T07:49:14.896Z",
-  token: 777,
+  token: 1234567890,
   permissions: ["create", "read", "update", "delete"],
   fields: [
     {
@@ -17,7 +17,7 @@ const data = {
       ref: null,
     },
     {
-      amount: 7.77,
+      amount: 3.1415,
       hasError: false,
       method: undefined,
     },
@@ -29,6 +29,9 @@ function App() {
   const demoParam = queryParams.get("demo");
   if (demoParam === "checkbox") {
     return <custom-checkbox />;
+  }
+  if (demoParam === "explorer") {
+    return <JSONExplorer data={data} />;
   }
 
   const [isLargeMode, setLargeMode] = useState(true);
