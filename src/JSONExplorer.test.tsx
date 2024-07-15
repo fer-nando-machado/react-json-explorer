@@ -2,6 +2,7 @@ import "@testing-library/react";
 import "@testing-library/jest-dom";
 import { describe, it, expect } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
+import { useState } from "react";
 import JSONExplorer from "./JSONExplorer";
 
 describe("JSONExplorer", () => {
@@ -50,6 +51,40 @@ describe("JSONExplorer", () => {
     fireEvent.click(screen.getByText(2));
     expect(input).toHaveValue("data.fruits[2]");
     expect(aside).toHaveTextContent("orange");
+  });
+
+  it("should reset path/value string cache when json data changes", () => {
+    const JSONExplorerWrapper: React.FC<{ initial: any; changed: any }> = ({
+      initial,
+      changed,
+    }) => {
+      const [data, setData] = useState(initial);
+      return (
+        <>
+          <JSONExplorer data={data} />
+          <button onClick={() => setData(changed)} />
+        </>
+      );
+    };
+
+    render(
+      <JSONExplorerWrapper initial={{ a: "first" }} changed={{ b: "second" }} />
+    );
+    const input = screen.getByRole("textbox");
+    const aside = screen.getByRole("complementary");
+    const changeHelper = screen.getByRole("button");
+
+    fireEvent.change(input, { target: { value: "data.a" } });
+    expect(aside).toHaveTextContent("first");
+    fireEvent.change(input, { target: { value: "data.b" } });
+    expect(aside).toHaveTextContent("undefined");
+
+    fireEvent.click(changeHelper);
+
+    fireEvent.change(input, { target: { value: "data.a" } });
+    expect(aside).toHaveTextContent("undefined");
+    fireEvent.change(input, { target: { value: "data.b" } });
+    expect(aside).toHaveTextContent("second");
   });
 
   it("should render the data tree to match the snapshot", () => {

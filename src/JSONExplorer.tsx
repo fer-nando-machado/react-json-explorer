@@ -15,8 +15,6 @@ type JSONExplorerProps = {
   data: JSONObject;
 };
 
-const cachedPathValue = new Map<string, string>();
-
 const renderKey = (
   key: string,
   path: string,
@@ -99,6 +97,8 @@ const renderValue = (
     </li>
   );
 };
+
+const cachedPathValue = new Map<string, string>();
 
 const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
   const [property, setProperty] = useState("");
