@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`JSONExplorer > should render the data tree to match the snapshot 1`] = `
+exports[`JSONExplorer > should render json data tree and match the snapshot 1`] = `
 <div
   class="json-explorer"
 >

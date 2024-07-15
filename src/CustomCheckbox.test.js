@@ -58,6 +58,28 @@ describe("custom-checkbox", () => {
     expect(customCheckbox).not.toHaveClass("checked");
   });
 
+  it("should check/uncheck native checkbox when pressing SPACE on custom checkbox", () => {
+    const { nativeCheckbox, customCheckbox } = renderCustomCheckbox();
+
+    customCheckbox.focus();
+    fireEvent.keyDown(customCheckbox, { key: " " });
+    expect(nativeCheckbox).toBeChecked();
+    expect(customCheckbox).toHaveClass("checked");
+
+    fireEvent.keyDown(customCheckbox, { key: " " });
+    expect(nativeCheckbox).not.toBeChecked();
+    expect(customCheckbox).not.toHaveClass("checked");
+  });
+
+  it("should not check/uncheck checkboxes when pressing ENTER on custom checkbox", () => {
+    const { nativeCheckbox, customCheckbox } = renderCustomCheckbox();
+
+    customCheckbox.focus();
+    fireEvent.keyDown(customCheckbox, { key: "Enter" });
+    expect(nativeCheckbox).not.toBeChecked();
+    expect(customCheckbox).not.toHaveClass("checked");
+  });
+
   it("should focus/unfocus custom checkbox when focusing/blurring native checkbox", () => {
     const { nativeCheckbox, customCheckbox } = renderCustomCheckbox();
 
@@ -86,27 +108,5 @@ describe("custom-checkbox", () => {
 
     await userEvent.tab();
     expect(customCheckbox).not.toHaveClass("focused");
-  });
-
-  it("should check/uncheck native checkbox when pressing SPACE on custom checkbox", () => {
-    const { nativeCheckbox, customCheckbox } = renderCustomCheckbox();
-
-    customCheckbox.focus();
-    fireEvent.keyDown(customCheckbox, { key: " " });
-    expect(nativeCheckbox).toBeChecked();
-    expect(customCheckbox).toHaveClass("checked");
-
-    fireEvent.keyDown(customCheckbox, { key: " " });
-    expect(nativeCheckbox).not.toBeChecked();
-    expect(customCheckbox).not.toHaveClass("checked");
-  });
-
-  it("should not check/uncheck checkboxes when pressing ENTER on custom checkbox", () => {
-    const { nativeCheckbox, customCheckbox } = renderCustomCheckbox();
-
-    customCheckbox.focus();
-    fireEvent.keyDown(customCheckbox, { key: "Enter" });
-    expect(nativeCheckbox).not.toBeChecked();
-    expect(customCheckbox).not.toHaveClass("checked");
   });
 });

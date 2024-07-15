@@ -19,7 +19,32 @@ describe("JSONExplorer", () => {
     expect(list).toHaveTextContent("key: 'value',");
   });
 
-  it("should update complementary value according to textbox property changes", () => {
+  it("should render json data tree and match the snapshot", () => {
+    const data = {
+      timestamp: "2021-10-27T07:49:14.896Z",
+      token: 777,
+      permissions: ["create", "read", "update", "delete"],
+      fields: [
+        {
+          id: "d1a2d386-8042-48a2-a1dd-d760e2fc09fb",
+          prop: "iban",
+          value: "DE81200505501265402568",
+          hasError: true,
+          ref: null,
+        },
+        {
+          amount: 7.77,
+          hasError: false,
+          method: undefined,
+        },
+      ],
+    };
+
+    const { container } = render(<JSONExplorer data={data} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it("should update complementary value when textbox property changes", () => {
     const data = { fields: [{ prop: "IBAN" }], amount: 7.77 };
     render(<JSONExplorer data={data} />);
     const input = screen.getByRole("textbox");
@@ -38,7 +63,7 @@ describe("JSONExplorer", () => {
     expect(aside).toHaveTextContent("");
   });
 
-  it("should update complementary value and textbox property according to tree key clicks", () => {
+  it("should update complementary value and textbox property when user clicks on tree key", () => {
     const data = { token: 777, fruits: ["banana", "apple", "orange"] };
     render(<JSONExplorer data={data} />);
     const input = screen.getByRole("textbox");
@@ -85,30 +110,5 @@ describe("JSONExplorer", () => {
     expect(aside).toHaveTextContent("undefined");
     fireEvent.change(input, { target: { value: "data.b" } });
     expect(aside).toHaveTextContent("second");
-  });
-
-  it("should render the data tree to match the snapshot", () => {
-    const data = {
-      timestamp: "2021-10-27T07:49:14.896Z",
-      token: 777,
-      permissions: ["create", "read", "update", "delete"],
-      fields: [
-        {
-          id: "d1a2d386-8042-48a2-a1dd-d760e2fc09fb",
-          prop: "iban",
-          value: "DE81200505501265402568",
-          hasError: true,
-          ref: null,
-        },
-        {
-          amount: 7.77,
-          hasError: false,
-          method: undefined,
-        },
-      ],
-    };
-
-    const { container } = render(<JSONExplorer data={data} />);
-    expect(container.firstChild).toMatchSnapshot();
   });
 });
