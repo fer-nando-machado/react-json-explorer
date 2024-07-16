@@ -26,7 +26,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
       </span>
       '
       <span
-        class="value string "
+        class="value string"
       >
         2021-10-27T07:49:14.896Z
       </span>
@@ -47,7 +47,56 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
       <span
         class="value number integer"
       >
-        1234567890
+        <span
+          class=""
+        >
+          1
+        </span>
+        <span
+          class=""
+        >
+          2
+        </span>
+        <span
+          class=""
+        >
+          3
+        </span>
+        <span
+          class=""
+        >
+          4
+        </span>
+        <span
+          class=""
+        >
+          5
+        </span>
+        <span
+          class=""
+        >
+          6
+        </span>
+        <span
+          class=""
+        >
+          7
+        </span>
+        <span
+          class=""
+        >
+          8
+        </span>
+        <span
+          class=""
+        >
+          9
+        </span>
+        <span
+          class=""
+        >
+          0
+        </span>
       </span>
       ,
     </li>
@@ -80,7 +129,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
           </span>
           '
           <span
-            class="value string "
+            class="value string"
           >
             create
           </span>
@@ -100,7 +149,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
           </span>
           '
           <span
-            class="value string "
+            class="value string"
           >
             read
           </span>
@@ -120,7 +169,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
           </span>
           '
           <span
-            class="value string "
+            class="value string"
           >
             update
           </span>
@@ -140,7 +189,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
           </span>
           '
           <span
-            class="value string "
+            class="value string"
           >
             delete
           </span>
@@ -180,7 +229,21 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
           <span
             class="value number NaN"
           >
-            NaN
+            <span
+              class=""
+            >
+              N
+            </span>
+            <span
+              class=""
+            >
+              a
+            </span>
+            <span
+              class=""
+            >
+              N
+            </span>
           </span>
           ,
         </li>
@@ -198,7 +261,51 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
           <span
             class="value number infinity"
           >
-            -Infinity
+            <span
+              class="symbol"
+            >
+              -
+            </span>
+            <span
+              class=""
+            >
+              I
+            </span>
+            <span
+              class=""
+            >
+              n
+            </span>
+            <span
+              class=""
+            >
+              f
+            </span>
+            <span
+              class=""
+            >
+              i
+            </span>
+            <span
+              class=""
+            >
+              n
+            </span>
+            <span
+              class=""
+            >
+              i
+            </span>
+            <span
+              class=""
+            >
+              t
+            </span>
+            <span
+              class=""
+            >
+              y
+            </span>
           </span>
           ,
         </li>
@@ -239,7 +346,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
               </span>
               '
               <span
-                class="value string "
+                class="value string"
               >
                 d1a2d386-8042-48a2-a1dd-d760e2fc09fb
               </span>
@@ -259,7 +366,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
               </span>
               '
               <span
-                class="value string "
+                class="value string"
               >
                 iban
               </span>
@@ -279,7 +386,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
               </span>
               '
               <span
-                class="value string "
+                class="value string"
               >
                 DE81200505501265402568
               </span>
@@ -298,7 +405,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
                 : 
               </span>
               <span
-                class="value boolean "
+                class="value boolean"
               >
                 true
               </span>
@@ -316,7 +423,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
                 : 
               </span>
               <span
-                class="value object "
+                class="value object"
               >
                 null
               </span>
@@ -344,7 +451,41 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
               <span
                 class="value number float"
               >
-                -3.1415
+                <span
+                  class="symbol"
+                >
+                  -
+                </span>
+                <span
+                  class=""
+                >
+                  3
+                </span>
+                <span
+                  class="symbol"
+                >
+                  .
+                </span>
+                <span
+                  class=""
+                >
+                  1
+                </span>
+                <span
+                  class=""
+                >
+                  4
+                </span>
+                <span
+                  class=""
+                >
+                  1
+                </span>
+                <span
+                  class=""
+                >
+                  5
+                </span>
               </span>
               ,
             </li>
@@ -360,7 +501,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
                 : 
               </span>
               <span
-                class="value boolean "
+                class="value boolean"
               >
                 false
               </span>
@@ -378,7 +519,7 @@ exports[`JSONExplorer > should render json data tree and match the snapshot 1`] 
                 : 
               </span>
               <span
-                class="value undefined "
+                class="value undefined"
               >
                 undefined
               </span>

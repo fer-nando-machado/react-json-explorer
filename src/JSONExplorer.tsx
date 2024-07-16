@@ -17,19 +17,6 @@ type JSONExplorerProps = {
 
 const cachedPathValue = new Map<string, string>();
 
-function describeNumber(value: number): string {
-  if (Number.isNaN(value)) {
-    return "NaN";
-  }
-  if (value === Infinity || value === -Infinity) {
-    return `infinity`;
-  }
-  if (Number.isInteger(value)) {
-    return `integer`;
-  }
-  return `float`;
-}
-
 const isArrayIndex = (key: string) => {
   return !isNaN(Number(key));
 };
@@ -102,20 +89,64 @@ const renderValue = (
     return !isFirst ? <li key={key}>{objectList}</li> : objectList;
   }
 
-  const valueString = String(value);
-  cachedPathValue.set(currentPath, valueString);
-
-  const isString = typeof value === "string";
-  const isNumber = typeof value === "number" ? describeNumber(value) : "";
+  cachedPathValue.set(currentPath, String(value));
 
   return (
     <li key={key}>
       {renderKey(key, currentPath, onClick)}
-      {isString && "'"}
-      <span className={`value ${typeof value} ${isNumber}`}>{valueString}</span>
-      {isString && "'"},
+      {renderValueAsText(value)},
     </li>
   );
+};
+
+const renderValueAsText = (value: JSONValue) => {
+  if (typeof value === "string") {
+    return (
+      <>
+        {"'"}
+        <span className="value string">{value}</span>
+        {"'"}
+      </>
+    );
+  }
+
+  if (typeof value === "number") {
+    return (
+      <span className={`value number ${describeNumber(value)}`}>
+        {renderNumber(value)}
+      </span>
+    );
+  }
+
+  return <span className={`value ${typeof value}`}>{String(value)}</span>;
+};
+
+const renderNumber = (value: number) => {
+  const symbols = ["-", "."];
+  return (
+    <>
+      {String(value)
+        .split("")
+        .map((digit, index) => (
+          <span key={index} className={symbols.includes(digit) ? "symbol" : ""}>
+            {digit}
+          </span>
+        ))}
+    </>
+  );
+};
+
+const describeNumber = (value: number) => {
+  if (Number.isNaN(value)) {
+    return "NaN";
+  }
+  if (value === Infinity || value === -Infinity) {
+    return "infinity";
+  }
+  if (Number.isInteger(value)) {
+    return "integer";
+  }
+  return "float";
 };
 
 const JSONExplorer: React.FC<JSONExplorerProps> = ({ data }) => {
