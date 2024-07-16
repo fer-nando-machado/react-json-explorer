@@ -17,6 +17,19 @@ type JSONExplorerProps = {
 
 const cachedPathValue = new Map<string, string>();
 
+function describeNumber(value: number): string {
+  if (Number.isNaN(value)) {
+    return "NaN";
+  }
+  if (value === Infinity || value === -Infinity) {
+    return `infinity`;
+  }
+  if (Number.isInteger(value)) {
+    return `integer`;
+  }
+  return `float`;
+}
+
 const isArrayIndex = (key: string) => {
   return !isNaN(Number(key));
 };
@@ -57,7 +70,6 @@ const renderValue = (
   path?: string,
   onClick?: (path: string) => void
 ) => {
-  const typeOfValue = typeof value;
   const currentPath = buildPath(key, path);
 
   if (Array.isArray(value)) {
@@ -74,13 +86,13 @@ const renderValue = (
     );
   }
 
-  if (typeOfValue === "object" && value !== null) {
+  if (typeof value === "object" && value !== null) {
     const isFirst = !path;
     const objectList = (
       <>
         {!isFirst && "{"}
         <ul className="object">
-          {Object.entries(value as Object).map(([objectKey, objectValue]) =>
+          {Object.entries(value).map(([objectKey, objectValue]) =>
             renderValue(objectKey, objectValue, currentPath, onClick)
           )}
         </ul>
@@ -93,12 +105,14 @@ const renderValue = (
   const valueString = String(value);
   cachedPathValue.set(currentPath, valueString);
 
-  const isString = typeOfValue === "string";
+  const isString = typeof value === "string";
+  const isNumber = typeof value === "number" ? describeNumber(value) : "";
+
   return (
     <li key={key}>
       {renderKey(key, currentPath, onClick)}
       {isString && "'"}
-      <span className={`value ${typeOfValue}`}>{valueString}</span>
+      <span className={`value ${typeof value} ${isNumber}`}>{valueString}</span>
       {isString && "'"},
     </li>
   );

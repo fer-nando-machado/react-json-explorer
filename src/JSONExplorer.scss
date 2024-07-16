@@ -58,7 +58,18 @@
     }
 
     &.number {
-      color: forestgreen;
+      &.integer {
+        color: forestgreen;
+      }
+      &.float {
+        color: olive;
+      }
+      &.NaN {
+        color: red;
+      }
+      &.infinity {
+        color: purple;
+      }
     }
 
     &.undefined {

@@ -8,6 +8,7 @@ const data = {
   timestamp: "2021-10-27T07:49:14.896Z",
   token: 1234567890,
   permissions: ["create", "read", "update", "delete"],
+  exceptions: [NaN, -Infinity],
   fields: [
     {
       id: "d1a2d386-8042-48a2-a1dd-d760e2fc09fb",
@@ -17,7 +18,7 @@ const data = {
       ref: null,
     },
     {
-      amount: 3.1415,
+      amount: -3.1415,
       hasError: false,
       method: undefined,
     },
